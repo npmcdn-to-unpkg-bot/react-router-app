@@ -26,7 +26,9 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.css$/, loader: 'style!css' }
+      { test: /\.css$/, loader: 'style!css' },
+      //{test: /\.(jpg|png)$/, loader: "url-loader?limit=8192"},
+      { test: /\.(eot|woff|svg|ttf|otf|jpg|png)$/, loader: "file-loader" }
     ]
   },
 

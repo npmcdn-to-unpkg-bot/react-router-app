@@ -1,5 +1,1841 @@
-<!doctype html public "embarassment">
-<body>
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" >
+<head>
+    <meta charset="utf-8">
+    <title>React</title>
+    <meta name="description" content="app, web app, charts, widgets, components">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body >
+
 <div id="example"/>
 <script src="/dist/shared.js"></script>
 <script src="/dist/main.js"></script>
+
+<div class="app ng-scope app-header-fixed" id="app">  <!-- navbar -->
+    <div class="app-header navbar ng-scope">      <!-- navbar header -->
+        <div class="navbar-header bg-black">
+            <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+                <i class="glyphicon glyphicon-cog"></i>
+            </button>
+            <button class="pull-right visible-xs active" ui-toggle-class="off-screen" data-target=".app-aside"
+                    ui-scroll="app">
+                <i class="glyphicon glyphicon-align-justify"></i>
+            </button>
+            <!-- brand -->
+            <a href="#/" class="navbar-brand text-lt">
+                <i class="fa fa-btc"></i>
+                <span class="hidden-folded m-l-xs ">react-router</span>
+            </a>
+            <!-- / brand -->
+        </div>
+        <!-- / navbar header -->
+
+        <!-- navbar collapse -->
+        <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
+            <form class="navbar-form navbar-form-sm navbar-left shift ng-pristine ng-valid ng-scope in"
+                  ui-shift="prependTo" target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" ng-model="selected"
+                               class="form-control input-sm bg-light no-border rounded padder ng-pristine ng-untouched ng-valid"
+                               placeholder="Search projects..." aria-autocomplete="list" aria-expanded="false"
+                               aria-owns="typeahead-33-2021">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-sm bg-light rounded"><i class="fa fa-search"></i></button>
+              </span>
+                    </div>
+                </div>
+            </form>
+            <!-- buttons -->
+            <div class="nav navbar-nav hidden-xs">
+                <a href="" class="btn no-shadow navbar-btn"
+                   ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+                    <i class="fa fa-dedent fa-fw"></i>
+                </a>
+                <a href="" class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
+                    <i class="icon-user fa-fw"></i>
+                </a>
+            </div>
+            <!-- / buttons -->
+
+            <!-- link and dropdown -->
+            <ul class="nav navbar-nav hidden-sm">
+                <li class="dropdown pos-stc" dropdown="">
+                    <a href="" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                        <span>Mega</span>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu wrapper w-full bg-white">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="m-l-xs m-t-xs m-b-xs font-bold">Pages <span
+                                        class="badge badge-sm bg-success">10</span></div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <ul class="list-unstyled l-h-2x">
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Post</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Search</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Invoice</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <ul class="list-unstyled l-h-2x">
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Price</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Lock
+                                                    screen</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign
+                                                    in</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sign
+                                                    up</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 b-l b-light">
+                                <div class="m-l-xs m-t-xs m-b-xs font-bold">UI Kits <span
+                                        class="label label-sm bg-primary">12</span></div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <ul class="list-unstyled l-h-2x">
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Buttons</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Icons
+                                                    <span class="badge badge-sm bg-warning">1000+</span></a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Grid</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Widgets</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <ul class="list-unstyled l-h-2x">
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Bootstap</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Sortable</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Portlet</a>
+                                            </li>
+                                            <li>
+                                                <a href=""><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Timeline</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 b-l b-light">
+                                <div class="m-l-xs m-t-xs m-b-sm font-bold">Analysis</div>
+                                <div class="text-center">
+                                    <div class="inline">
+                                        <div ui-jq="easyPieChart" ui-options="{
+                          percent: 65,
+                          lineWidth: 50,
+                          trackColor: '#e8eff0',
+                          barColor: '#23b7e5',
+                          scaleColor: false,
+                          size: 100,
+                          rotate: 90,
+                          lineCap: 'butt',
+                          animate: 2000
+                        }" class="easyPieChart" style="width: 100px; height: 100px; line-height: 100px;">
+                                            <canvas width="100" height="100"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown" dropdown="">
+                    <a href="" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+                        <span translate="header.navbar.new.NEW" >New</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" translate="header.navbar.new.PROJECT" >Projects</a></li>
+                        <li>
+                            <a href="">
+                                <span class="badge bg-info pull-right">5</span>
+                                <span translate="header.navbar.new.TASK" >Task</span>
+                            </a>
+                        </li>
+                        <li><a href="" translate="header.navbar.new.USER" >User</a></li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="">
+                                <span class="badge bg-danger pull-right">4</span>
+                                <span translate="header.navbar.new.EMAIL" >Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- / link and dropdown -->
+
+            <!-- search form -->
+
+            <!-- / search form -->
+
+            <!-- nabar right -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown hidden-sm" is-open="lang.isopen" dropdown="">
+                    <a href="" class="dropdown-toggle " dropdown-toggle="" aria-haspopup="true"
+                       aria-expanded="false">
+                        English <b class="caret"></b>
+                    </a>
+                    <!-- dropdown -->
+                    <ul class="dropdown-menu animated fadeInRight w">
+                        <!-- ngRepeat: (langKey, label) in langs -->
+                        <li ng-repeat="(langKey, label) in langs" >
+                            <a ng-click="setLang(langKey, $event)" href="" class="">German</a>
+                        </li><!-- end ngRepeat: (langKey, label) in langs -->
+                        <li ng-repeat="(langKey, label) in langs" >
+                            <a ng-click="setLang(langKey, $event)" href="" class="">English</a>
+                        </li><!-- end ngRepeat: (langKey, label) in langs -->
+                        <li ng-repeat="(langKey, label) in langs" >
+                            <a ng-click="setLang(langKey, $event)" href="" class="">Italian</a>
+                        </li><!-- end ngRepeat: (langKey, label) in langs -->
+                    </ul>
+                    <!-- / dropdown -->
+                </li>
+                <li class="hidden-xs">
+                    <a ui-fullscreen="" class=""><i class="fa fa-expand fa-fw text"></i><i
+                            class="fa fa-compress fa-fw text-active"></i></a>
+                </li>
+                <li class="dropdown" dropdown="">
+                    <a href="" class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-bell fa-fw"></i>
+                        <span class="visible-xs-inline">Notifications</span>
+                        <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
+                    </a>
+                    <!-- dropdown -->
+                    <div class="dropdown-menu w-xl animated fadeInUp">
+                        <div class="panel bg-white">
+                            <div class="panel-heading b-light bg-light">
+                                <strong>You have <span>2</span> notifications</strong>
+                            </div>
+                            <div class="list-group">
+                                <a href="" class="media list-group-item">
+                    <span class="pull-left thumb-sm">
+                      <img src="public/img/a0.jpg" alt="..." class="img-circle">
+                    </span>
+                    <span class="media-body block m-b-none">
+                      Use awesome animate.css<br>
+                      <small class="text-muted">10 minutes ago</small>
+                    </span>
+                                </a>
+                                <a href="" class="media list-group-item">
+                    <span class="media-body block m-b-none">
+                      1.0 initial released<br>
+                      <small class="text-muted">1 hour ago</small>
+                    </span>
+                                </a>
+                            </div>
+                            <div class="panel-footer text-sm">
+                                <a href="" class="pull-right"><i class="fa fa-cog"></i></a>
+                                <a href="#notes" data-toggle="class:show animated fadeInRight">See all the
+                                    notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / dropdown -->
+                </li>
+                <li class="dropdown" dropdown="">
+                    <a href="" class="dropdown-toggle clear" dropdown-toggle="" aria-haspopup="true"
+                       aria-expanded="false">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="public/img/a0.jpg" alt="...">
+                <i class="on md b-white bottom"></i>
+              </span>
+                        <span class="hidden-sm hidden-md">John.Smith</span> <b class="caret"></b>
+                    </a>
+                    <!-- dropdown -->
+                    <ul class="dropdown-menu animated fadeInRight w">
+                        <li class="wrapper b-b m-b-sm bg-light m-t-n-xs">
+                            <div>
+                                <p>300mb of 500mb used</p>
+                            </div>
+                            <div class="progress-xs m-b-none bg-white progress ng-isolate-scope" value="60">
+                                <div class="progress-bar" ng-class="type &amp;&amp; 'progress-bar-' + type"
+                                     role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     ng-style="{width: percent + '%'}" aria-valuetext="60%" ng-transclude=""
+                                     style="width: 60%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="badge bg-danger pull-right">30%</span>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="app.page.profile" href="#/app/page/profile">Profile</a>
+                        </li>
+                        <li>
+                            <a ui-sref="app.docs" href="#/app/docs">
+                                <span class="label bg-info pull-right">new</span>
+                                Help
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a ui-sref="access.signin" href="#/access/signin">Logout</a>
+                        </li>
+                    </ul>
+                    <!-- / dropdown -->
+                </li>
+            </ul>
+            <!-- / navbar right -->
+
+        </div>
+        <!-- / navbar collapse --></div>
+    <!-- / navbar -->
+
+    <!-- menu -->
+    <!-- ngInclude: 'tpl/blocks/aside.html' -->
+    <div data-ng-include=" 'tpl/blocks/aside.html' " class="app-aside hidden-xs bg-black off-screen">
+        <div class="aside-wrap ng-scope">
+            <!-- if you want to use a custom scroll when aside fixed, use the slimScroll
+              <div class="navi-wrap" ui-jq="slimScroll" ui-options="{height:'100%', size:'8px'}">
+            -->
+            <div class="navi-wrap">
+                <!-- user -->
+                <div class="clearfix hidden-xs text-center hide" id="aside-user">
+                    <div class="dropdown wrapper" dropdown="">
+                        <a ui-sref="app.page.profile" href="#/app/page/profile">
+          <span class="thumb-lg w-auto-folded avatar m-t-sm">
+            <img src="public/img/a0.jpg" class="img-full" alt="...">
+          </span>
+                        </a>
+                        <a href="" class="dropdown-toggle hidden-folded" dropdown-toggle="" aria-haspopup="true"
+                           aria-expanded="false">
+          <span class="clear">
+            <span class="block m-t-sm">
+              <strong class="font-bold text-lt">John.Smith</strong>
+              <b class="caret"></b>
+            </span>
+            <span class="text-muted text-xs block">Art Director</span>
+          </span>
+                        </a>
+                        <!-- dropdown -->
+                        <ul class="dropdown-menu animated fadeInRight w hidden-folded">
+                            <li class="wrapper b-b m-b-sm bg-info m-t-n-xs">
+                                <span class="arrow top hidden-folded arrow-info"></span>
+                                <div>
+                                    <p>300mb of 500mb used</p>
+                                </div>
+                                <div class="progress-xs m-b-none dker progress ng-isolate-scope" value="60"
+                                     type="white">
+                                    <div class="progress-bar progress-bar-white"
+                                         ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar"
+                                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                         ng-style="{width: percent + '%'}" aria-valuetext="60%" ng-transclude=""
+                                         style="width: 60%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="">Settings</a>
+                            </li>
+                            <li>
+                                <a ui-sref="app.page.profile" href="#/app/page/profile">Profile</a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="badge bg-danger pull-right">3</span>
+                                    Notifications
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a ui-sref="access.signin" href="#/access/signin">Logout</a>
+                            </li>
+                        </ul>
+                        <!-- / dropdown -->
+                    </div>
+                    <div class="line dk hidden-folded"></div>
+                </div>
+                <!-- / user -->
+
+                <!-- nav -->
+                <!-- ngInclude: 'tpl/blocks/nav.html' -->
+                <nav ui-nav="" class="navi ng-scope" ng-include="'tpl/blocks/nav.html'"><!-- list -->
+                    <ul class="nav ng-scope">
+                        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                            <span translate="aside.nav.HEADER" >Navigation</span>
+                        </li>
+                        <li>
+                            <a href="" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+                                <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+                                <span class="font-bold ng-scope" translate="aside.nav.DASHBOARD">Dashboard</span>
+                            </a>
+                            <ul class="nav nav-sub dk">
+                                <li class="nav-sub-header">
+                                    <a href="">
+                                        <span translate="aside.nav.DASHBOARD" >Dashboard</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" class="active">
+                                    <a ui-sref="app.dashboard-v1" href="#/app/dashboard-v1">
+                                        <span>Dashboard v1</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.dashboard-v2" href="#/app/dashboard-v2">
+                                        <b class="label bg-info pull-right">N</b>
+                                        <span>Dashboard v2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="app.calendar" href="#/app/calendar">
+                                <i class="glyphicon glyphicon-calendar icon text-info-dker"></i>
+                                <span class="font-bold ng-scope" translate="aside.nav.CALENDAR">Calendar</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="app.mail.list" href="#/app/mail/inbox/">
+                                <b class="badge bg-info pull-right">9</b>
+                                <i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
+                                <span class="font-bold ng-scope" translate="aside.nav.EMAIL">Email</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+                                <i class="glyphicon glyphicon-th-large icon text-success"></i>
+                                <span class="font-bold">Apps</span>
+                            </a>
+                            <ul class="nav nav-sub dk">
+                                <li class="nav-sub-header">
+                                    <a href="">
+                                        <span>Apps</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="apps.note" href="#/apps/note">
+                                        <span>Note</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="apps.contact" href="#/apps/contact">
+                                        <span>Contacts</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.weather" href="#/app/weather">
+                                        <span>Weather</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="line dk"></li>
+
+                        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                            <span translate="aside.nav.components.COMPONENTS" >Components</span>
+                        </li>
+                        <li>
+                            <a href="" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+                                <b class="badge bg-info pull-right">3</b>
+                                <i class="glyphicon glyphicon-th"></i>
+                                <span>Layout</span>
+                            </a>
+                            <ul class="nav nav-sub dk">
+                                <li class="nav-sub-header">
+                                    <a href="">
+                                        <span>Layout</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="layout.app" href="#/layout/app">
+                                        <span>Application</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="layout.fullwidth" href="#/layout/fullwidth">
+                                        <span>Full width</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="layout.mobile" href="#/layout/mobile">
+                                        <span>Mobile</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-class="{active:$state.includes('app.ui')}">
+                            <a href="" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+                                <i class="glyphicon glyphicon-briefcase icon"></i>
+                                <span translate="aside.nav.components.ui_kits.UI_KITS" >UI Kits</span>
+                            </a>
+                            <ul class="nav nav-sub dk">
+                                <li class="nav-sub-header">
+                                    <a href="">
+                                        <span translate="aside.nav.components.ui_kits.UI_KITS"
+                                              >UI Kits</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.buttons" href="#/app/ui/buttons">
+                                        <span translate="aside.nav.components.ui_kits.BUTTONS"
+                                              >Buttons</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.icons" href="#/app/ui/icons">
+                                        <b class="badge bg-info pull-right">3</b>
+                                        <span translate="aside.nav.components.ui_kits.ICONS"
+                                              >Icons</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.grid" href="#/app/ui/grid">
+                                        <span translate="aside.nav.components.ui_kits.GRID" >Grid</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.widgets" href="#/app/ui/widgets">
+                                        <b class="badge bg-success pull-right">13</b>
+                                        <span translate="aside.nav.WIDGETS" >Widgets</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.bootstrap" href="#/app/ui/bootstrap">
+                                        <b class="badge bg-primary pull-right">16</b>
+                                        <span translate="aside.nav.components.ui_kits.BOOTSTRAP" >Bootstrap</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.sortable" href="#/app/ui/sortable">
+                                        <span translate="aside.nav.components.ui_kits.SORTABLE" >Sortable</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.portlet" href="#/app/ui/portlet">
+                                        <span translate="aside.nav.components.ui_kits.PORTLET"
+                                              >Portlet</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.timeline" href="#/app/ui/timeline">
+                                        <span translate="aside.nav.components.ui_kits.TIMELINE" >Timeline</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.tree" href="#/app/ui/tree">
+                                        <span>Tree</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.toaster" href="#/app/ui/toaster">
+                                        <span>Toaster</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.jvectormap" href="#/app/ui/jvectormap">
+                                        <span translate="aside.nav.components.ui_kits.VECTOR_MAP" >Vector Map</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.ui.googlemap" href="#/app/ui/googlemap">
+                                        <span>Google Map</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-class="{active:$state.includes('app.table')}">
+                            <a href="" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+                                <b class="label bg-primary pull-right">2</b>
+                                <i class="glyphicon glyphicon-list"></i>
+                                <span translate="aside.nav.components.table.TABLE" >Table</span>
+                            </a>
+                            <ul class="nav nav-sub dk">
+                                <li class="nav-sub-header">
+                                    <a href="">
+                                        <span translate="aside.nav.components.table.TABLE" >Table</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.table.static" href="#/app/table/static">
+                                        <span translate="aside.nav.components.table.TABLE_STATIC" >Table static</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.table.datatable" href="#/app/table/datatable">
+                                        <span translate="aside.nav.components.table.DATATABLE" >Datatable</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.table.footable" href="#/app/table/footable">
+                                        <span translate="aside.nav.components.table.FOOTABLE"
+                                              >Footable</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.table.grid" href="#/app/table/grid">
+                                        <span>ngGrid</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ng-class="{active:$state.includes('app.form')}">
+                            <a href="" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+                                <i class="glyphicon glyphicon-edit"></i>
+                                <span translate="aside.nav.components.form.FORM" >Form</span>
+                            </a>
+                            <ul class="nav nav-sub dk">
+                                <li class="nav-sub-header">
+                                    <a href="">
+                                        <span translate="aside.nav.components.form.FORM" >Form</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.elements" href="#/app/form/elements">
+                                        <span translate="aside.nav.components.form.FORM_ELEMENTS" >Form elements</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.validation" href="#/app/form/validation">
+                                        <span translate="aside.nav.components.form.FORM_VALIDATION" >Form validation</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.wizard" href="#/app/form/wizard">
+                                        <span translate="aside.nav.components.form.FORM_WIZARD" >Form wizard</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.fileupload" href="#/app/form/fileupload">
+                                        <span>File upload</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.imagecrop" href="#/app/form/imagecrop">
+                                        <span>Image crop</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.select" href="#/app/form/select">
+                                        <span>Select</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.slider" href="#/app/form/slider">
+                                        <span>Slider</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.form.editor" href="#/app/form/editor">
+                                        <span>Editor</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="app.chart" href="#/app/chart">
+                                <i class="glyphicon glyphicon-signal"></i>
+                                <span translate="aside.nav.components.CHART" >Chart</span>
+                            </a>
+                        </li>
+                        <li ng-class="{active:$state.includes('app.page')}">
+                            <a href="" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+                                <i class="glyphicon glyphicon-file icon"></i>
+                                <span translate="aside.nav.components.pages.PAGES" >Pages</span>
+                            </a>
+                            <ul class="nav nav-sub dk">
+                                <li class="nav-sub-header">
+                                    <a href="">
+                                        <span translate="aside.nav.components.pages.PAGES" >Pages</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.page.profile" href="#/app/page/profile">
+                                        <span translate="aside.nav.components.pages.PROFILE"
+                                              >Profile</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.page.post" href="#/app/page/post">
+                                        <span translate="aside.nav.components.pages.POST" >Post</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.page.search" href="#/app/page/search">
+                                        <span translate="aside.nav.components.pages.SEARCH"
+                                              >Search</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.page.invoice" href="#/app/page/invoice">
+                                        <span translate="aside.nav.components.pages.INVOICE"
+                                              >Invoice</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="app.page.price" href="#/app/page/price">
+                                        <span>Price</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="lockme" href="#/lockme">
+                                        <span translate="aside.nav.components.pages.LOCK_SCREEN" >Lock screen</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="access.signin" href="#/access/signin">
+                                        <span translate="aside.nav.components.pages.SIGNIN"
+                                              >Signin</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="access.signup" href="#/access/signup">
+                                        <span translate="aside.nav.components.pages.SIGNUP"
+                                              >Signup</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="access.forgotpwd" href="#/access/forgotpwd">
+                                        <span translate="aside.nav.components.pages.FORGOT_PASSWORD" >Forgot password</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="access.404" href="#/access/404">
+                                        <span translate="aside.nav.components.pages.404" >404</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="line dk hidden-folded"></li>
+
+                        <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                            <span translate="aside.nav.your_stuff.YOUR_STUFF" >Your Stuff</span>
+                        </li>
+                        <li>
+                            <a ui-sref="app.page.profile" href="#/app/page/profile">
+                                <i class="icon-user icon text-success-lter"></i>
+                                <b class="badge bg-success pull-right">30%</b>
+                                <span translate="aside.nav.your_stuff.PROFILE" >Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="app.docs" href="#/app/docs">
+                                <i class="icon-question icon"></i>
+                                <span translate="aside.nav.your_stuff.DOCUMENTS" >Documents</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- / list --></nav>
+                <!-- nav -->
+
+                <!-- aside footer -->
+                <div class="wrapper m-t">
+                    <div class="text-center-folded">
+                        <span class="pull-right pull-none-folded">60%</span>
+                        <span class="hidden-folded ng-scope" translate="aside.MILESTONE">Milestone</span>
+                    </div>
+                    <div class="progress-xxs m-t-sm dk progress ng-isolate-scope" value="60" type="info">
+                        <div class="progress-bar progress-bar-info" ng-class="type &amp;&amp; 'progress-bar-' + type"
+                             role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                             ng-style="{width: percent + '%'}" aria-valuetext="60%" ng-transclude=""
+                             style="width: 60%;"></div>
+                    </div>
+                    <div class="text-center-folded">
+                        <span class="pull-right pull-none-folded">35%</span>
+                        <span class="hidden-folded ng-scope" translate="aside.RELEASE">Release</span>
+                    </div>
+                    <div class="progress-xxs m-t-sm dk progress ng-isolate-scope" value="35" type="primary">
+                        <div class="progress-bar progress-bar-primary" ng-class="type &amp;&amp; 'progress-bar-' + type"
+                             role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"
+                             ng-style="{width: percent + '%'}" aria-valuetext="35%" ng-transclude=""
+                             style="width: 35%;"></div>
+                    </div>
+                </div>
+                <!-- / aside footer -->
+            </div>
+        </div>
+    </div>
+    <!-- / menu -->
+
+    <!-- content -->
+    <div class="app-content ng-scope">
+        <div ui-butterbar="" class="butterbar hide"><span class="bar"></span></div>
+        <a href="" class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside"></a>
+        <!-- uiView:  -->
+        <div class="app-content-body fade-in-up ng-scope" ui-view="">
+            <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = false;
+  ">
+                <!-- main -->
+                <div class="col">
+                    <!-- main header -->
+                    <div class="bg-light lter b-b wrapper-md">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
+                                <small class="text-muted">Welcome to angulr application</small>
+                            </div>
+                            <div class="col-sm-6 text-right hidden-xs">
+                                <div class="inline m-r text-left">
+                                    <div class="m-b-xs">1290 <span class="text-muted">items</span></div>
+                                    <div ng-init="data1=[ 106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98 ]"
+                                         ui-jq="sparkline"
+                                         ui-options="[106,108,110,105,110,109,105,104,107,109,105,100,105,102,101,99,98], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}"
+                                         class="sparkline inline">
+                                        <canvas width="101" height="20"
+                                                style="display: inline-block; width: 101px; height: 20px; vertical-align: top;"></canvas>
+                                    </div>
+                                </div>
+                                <div class="inline text-left">
+                                    <div class="m-b-xs">$30,000 <span class="text-muted">revenue</span></div>
+                                    <div ng-init="data2=[ 105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109 ]"
+                                         ui-jq="sparkline"
+                                         ui-options="[105,102,106,107,105,104,101,99,98,109,105,100,108,110,105,110,109], {type:'bar', height:20, barWidth:5, barSpacing:1, barColor:'#dce5ec'}"
+                                         class="sparkline inline">
+                                        <canvas width="101" height="20"
+                                                style="display: inline-block; width: 101px; height: 20px; vertical-align: top;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / main header -->
+                    <div class="wrapper-md ng-scope" ng-controller="FlotChartDemoCtrl">
+                        <!-- stats -->
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="row row-sm text-center">
+                                    <div class="col-xs-6">
+                                        <div class="panel padder-v item">
+                                            <div class="h1 text-info font-thin h1">521</div>
+                                            <span class="text-muted text-xs">New items</span>
+                                            <div class="top text-right w-full">
+                                                <i class="fa fa-caret-down text-warning m-r-sm"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="" class="block panel padder-v bg-primary item">
+                                            <span class="text-white font-thin h1 block">930</span>
+                                            <span class="text-muted text-xs">Uploads</span>
+                <span class="bottom text-right w-full">
+                  <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="" class="block panel padder-v bg-info item">
+                                            <span class="text-white font-thin h1 block">432</span>
+                                            <span class="text-muted text-xs">Comments</span>
+                <span class="top text-left">
+                  <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="panel padder-v item">
+                                            <div class="font-thin h1">129</div>
+                                            <span class="text-muted text-xs">Feeds</span>
+                                            <div class="bottom text-left">
+                                                <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 m-b-md">
+                                        <div class="r bg-light dker item hbox no-border">
+                                            <div class="col w-xs v-middle hidden-md">
+                                                <div ng-init="data1=[60,40]" ui-jq="sparkline"
+                                                     ui-options="[60,40], {type:'pie', height:40, sliceColors:['#fad733','#fff']}"
+                                                     class="sparkline inline">
+                                                    <canvas width="40" height="40"
+                                                            style="display: inline-block; width: 40px; height: 40px; vertical-align: top;"></canvas>
+                                                </div>
+                                            </div>
+                                            <div class="col dk padder-v r-r">
+                                                <div class="text-primary-dk font-thin h1"><span>$12,670</span></div>
+                                                <span class="text-muted text-xs">Revenue, 60% of the goal</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="panel wrapper">
+                                    <label class="i-switch bg-warning pull-right" ng-init="showSpline=true">
+                                        <input type="checkbox" ng-model="showSpline"
+                                               class="ng-pristine ng-untouched ng-valid">
+                                        <i></i>
+                                    </label>
+                                    <h4 class="font-thin m-t-none m-b text-muted">Latest Campaign</h4>
+                                    <div ui-jq="plot" ui-refresh="showSpline" ui-options="[
+                { data: [[0,7],[1,6.5],[2,12.5],[3,7],[4,9],[5,6],[6,11],[7,6.5],[8,8],[9,7]], label:'TV', points: { show: true, radius: 1}, splines: { show: showSpline, tension: 0.4, lineWidth: 1, fill: 0.8 } },
+                { data: [[0,4],[1,4.5],[2,7],[3,4.5],[4,3],[5,3.5],[6,6],[7,3],[8,4],[9,3]], label:'Mag', points: { show: true, radius: 1}, splines: { show: showSpline, tension: 0.4, lineWidth: 1, fill: 0.8 } }
+              ],
+              {
+                colors: ['#23b7e5', '#7266ba'],
+                series: { shadowSize: 3 },
+                xaxis:{ font: { color: '#a1a7ac' } },
+                yaxis:{ font: { color: '#a1a7ac' }, max:20 },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#dce5ec' },
+                tooltip: true,
+                tooltipOpts: { content: 'Visits of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
+              }" style="height: 246px; padding: 0px; position: relative;">
+                                        <canvas class="flot-base" width="283" height="246"
+                                                style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 283px; height: 246px;"></canvas>
+                                        <div class="flot-text"
+                                             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                                            <div class="flot-x-axis flot-x1-axis xAxis x1Axis"
+                                                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                                                <div style="position: absolute; max-width: 46px; top: 234px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 14px; text-align: center;">
+                                                    0
+                                                </div>
+                                                <div style="position: absolute; max-width: 46px; top: 234px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 72px; text-align: center;">
+                                                    2
+                                                </div>
+                                                <div style="position: absolute; max-width: 46px; top: 234px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 130px; text-align: center;">
+                                                    4
+                                                </div>
+                                                <div style="position: absolute; max-width: 46px; top: 234px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 187px; text-align: center;">
+                                                    6
+                                                </div>
+                                                <div style="position: absolute; max-width: 46px; top: 234px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 245px; text-align: center;">
+                                                    8
+                                                </div>
+                                            </div>
+                                            <div class="flot-y-axis flot-y1-axis yAxis y1Axis"
+                                                 style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                                                <div style="position: absolute; top: 223px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 6px; text-align: right;">
+                                                    0
+                                                </div>
+                                                <div style="position: absolute; top: 167px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 6px; text-align: right;">
+                                                    5
+                                                </div>
+                                                <div style="position: absolute; top: 112px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                    10
+                                                </div>
+                                                <div style="position: absolute; top: 56px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                    15
+                                                </div>
+                                                <div style="position: absolute; top: 0px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                    20
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <canvas class="flot-overlay" width="283" height="246"
+                                                style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 283px; height: 246px;"></canvas>
+                                        <div class="legend">
+                                            <div style="position: absolute; width: 43px; height: 44px; top: 11px; right: 11px; opacity: 0.85; background-color: rgb(255, 255, 255);"></div>
+                                            <table style="position:absolute;top:11px;right:11px;;font-size:smaller;color:#dce5ec">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="legendColorBox">
+                                                        <div style="border:1px solid #ccc;padding:1px">
+                                                            <div style="width:4px;height:0;border:5px solid rgb(35,183,229);overflow:hidden"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="legendLabel">TV</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="legendColorBox">
+                                                        <div style="border:1px solid #ccc;padding:1px">
+                                                            <div style="width:4px;height:0;border:5px solid rgb(114,102,186);overflow:hidden"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="legendLabel">Mag</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / stats -->
+
+                        <!-- service -->
+                        <div class="panel hbox hbox-auto-xs no-border">
+                            <div class="col wrapper">
+                                <i class="fa fa-circle-o text-info m-r-sm pull-right"></i>
+                                <h4 class="font-thin m-t-none m-b-none text-primary-lt">Managed Services</h4>
+                                <span class="m-b block text-sm text-muted">Service report of this year (updated 1 hour ago)</span>
+                                <div ui-jq="plot" ui-options="[
+              { data: [[0,47.96148087596521],[1,47.838461212813854],[2,43.46735089318827],[3,47.338101249188185],[4,51.17830597329885],[5,47.05404122825712],[6,43.39151879539713],[7,42.547013349831104],[8,40.24619922041893],[9,41.65285023627803],[10,37.585216362494975],[11,33.93336348934099],[12,35.685661640018225],[13,32.622971932869405],[14,28.203817647881806],[15,24.650555152911693],[16,23.55522266589105],[17,28.37794224731624],[18,27.60458637494594],[19,29.678659250494093],[20,29.603638923726976],[21,32.97929709078744],[22,30.48838160932064],[23,35.11116930982098],[24,37.18360198661685],[25,38.33030365174636],[26,40.24100398179144],[27,44.20223868684843],[28,41.20846386998892],[29,38.170073747169226],[30,39.879658047575504],[31,36.661013728007674],[32,40.54486149456352],[33,41.30187839502469],[34,37.249116154853255],[35,40.28117946116254],[36,41.08436319511384],[37,37.64738636324182],[38,34.372486209031194],[39,31.66254411218688],[40,36.541398686822504],[41,37.750621158629656],[42,35.657716216519475],[43,34.70887694042176],[44,31.0466578300111],[45,26.57807384384796],[46,31.484140309039503],[47,31.915959103498608],[48,32.67192947678268],[49,28.411311553791165],[50,24.36348968418315],[51,26.803269588854164],[52,30.357056974899024],[53,31.91246912581846],[54,31.836283451411873],[55,33.05991458008066],[56,30.963851588312536],[57,34.99582976801321],[58,34.68658631434664],[59,35.57079028338194],[60,32.08045890554786],[61,35.92188274720684],[62,31.781761127058417],[63,31.99904283042997],[64,32.13585391175002],[65,33.61024769488722],[66,31.728188451379538],[67,32.95492536853999],[68,35.38531657541171],[69,39.818335715681314],[70,43.55322805000469],[71,48.532371094916016],[72,49.02655427576974],[73,45.026952498592436],[74,48.141305486205965],[75,44.585328390821815],[76,46.041765618138015],[77,48.506925341207534],[78,50.26761855697259],[79,50.201594471000135],[80,45.80941477557644],[81,50.03593223867938],[82,46.82357426267117],[83,44.19749525375664],[84,39.4802643568255],[85,43.03229085635394],[86,39.60482981754467],[87,37.65799436252564],[88,41.044475976377726],[89,43.37091771885753],[90,44.85835480969399],[91,40.17845463240519],[92,36.14515636814758],[93,39.82971322024241],[94,37.34814963769168],[95,39.87668214133009],[96,42.285212182905525],[97,43.660566073376685],[98,46.900877193547785],[99,44.53041148139164],[100,39.780904257204384],[101,40.157469732221216],[102,42.33720335410908],[103,39.13210960570723],[104,37.99862866289914],[105,35.12733743991703],[106,39.86848545726389],[107,36.736024068668485],[108,35.859225986059755],[109,40.458520038519055],[110,39.29627380333841],[111,41.353927119635046],[112,36.79788836045191],[113,36.863118761684746],[114,36.73043178394437],[115,39.6149863069877],[116,43.876437759026885],[117,42.68160772975534],[118,45.89817650150508],[119,46.39086033217609],[120,44.394777768757194],[121,40.23513518041],[122,36.697878094855696],[123,34.54573085997254],[124,34.84105265233666],[125,34.118485264480114],[126,31.08317046891898],[127,28.440669227857143],[128,29.398047272115946],[129,25.82236137939617],[130,21.785764603409916],[131,25.248643916565925],[132,25.331101552583277],[133,28.285570009611547],[134,32.63729163678363],[135,30.14815063448623],[136,28.053367643151432],[137,23.0731297750026],[138,23.77204628661275],[139,19.08875172259286],[140,14.312968526501209],[141,10.853675489779562],[142,14.374559773132205],[143,10.05654716398567],[144,12.333388573024422],[145,7.574367453344166],[146,8.657537610270083],[147,11.455140642356128],[148,7.889988098759204],[149,4.1895860130898654]], lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
+            ],
+            {
+              colors: ['#e8eff0'],
+              series: { shadowSize: 3 },
+              xaxis:{ show:false },
+              yaxis:{ font: { color: '#a1a7ac' } },
+              grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#dce5ec' },
+              tooltip: true,
+              tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
+            }" style="height: 240px; padding: 0px; position: relative;">
+                                    <canvas class="flot-base" width="285" height="240"
+                                            style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 285px; height: 240px;"></canvas>
+                                    <div class="flot-text"
+                                         style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                                        <div class="flot-y-axis flot-y1-axis yAxis y1Axis"
+                                             style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;">
+                                            <div style="position: absolute; top: 226px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 6px; text-align: right;">
+                                                0
+                                            </div>
+                                            <div style="position: absolute; top: 189px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                10
+                                            </div>
+                                            <div style="position: absolute; top: 151px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                20
+                                            </div>
+                                            <div style="position: absolute; top: 114px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                30
+                                            </div>
+                                            <div style="position: absolute; top: 77px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                40
+                                            </div>
+                                            <div style="position: absolute; top: 39px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                50
+                                            </div>
+                                            <div style="position: absolute; top: 2px; font-style: normal; font-variant: normal; font-weight: 400; font-stretch: normal; font-size: 11px; line-height: 12.65px; font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: rgb(161, 167, 172); left: 0px; text-align: right;">
+                                                60
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <canvas class="flot-overlay" width="285" height="240"
+                                            style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 285px; height: 240px;"></canvas>
+                                </div>
+                            </div>
+                            <div class="col wrapper-lg w-lg bg-light dk r-r">
+                                <h4 class="font-thin m-t-none m-b">Reports</h4>
+                                <div class="">
+                                    <div class="">
+                                        <span class="pull-right text-primary">60%</span>
+                                        <span>Consulting</span>
+                                    </div>
+                                    <div class="progress-xs m-t-sm bg-white progress ng-isolate-scope" value="60"
+                                         animate="true" type="primary">
+                                        <div class="progress-bar progress-bar-primary"
+                                             ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             ng-style="{width: percent + '%'}" aria-valuetext="60%" ng-transclude=""
+                                             style="width: 60%;"></div>
+                                    </div>
+                                    <div class="">
+                                        <span class="pull-right text-info">35%</span>
+                                        <span>Online tutorials</span>
+                                    </div>
+                                    <div class="progress-xs m-t-sm bg-white progress ng-isolate-scope" value="35"
+                                         animate="true" type="info">
+                                        <div class="progress-bar progress-bar-info"
+                                             ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar"
+                                             aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"
+                                             ng-style="{width: percent + '%'}" aria-valuetext="35%" ng-transclude=""
+                                             style="width: 35%;"></div>
+                                    </div>
+                                    <div class="">
+                                        <span class="pull-right text-warning">25%</span>
+                                        <span>EDU management</span>
+                                    </div>
+                                    <div class="progress-xs m-t-sm bg-white progress ng-isolate-scope" value="25"
+                                         animate="true" type="warning">
+                                        <div class="progress-bar progress-bar-warning"
+                                             ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar"
+                                             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                                             ng-style="{width: percent + '%'}" aria-valuetext="25%" ng-transclude=""
+                                             style="width: 25%;"></div>
+                                    </div>
+                                </div>
+                                <p class="text-muted">Dales nisi nec adipiscing elit. Morbi id neque quam. Aliquam
+                                    sollicitudin venenatis</p>
+                            </div>
+                        </div>
+                        <!-- / service -->
+
+                        <!-- tasks -->
+                        <div class="panel wrapper">
+                            <div class="row">
+                                <div class="col-md-6 b-r b-light no-border-xs">
+                                    <a href="" class="text-muted pull-right text-lg"><i
+                                            class="icon-arrow-right"></i></a>
+                                    <h4 class="font-thin m-t-none m-b-md text-muted">My Tasks</h4>
+                                    <div class=" m-b">
+                                        <div class="m-b">
+                                            <span class="label text-base bg-warning pos-rlt m-r"><i
+                                                    class="arrow right arrow-warning"></i> 19:30</span>
+                                            <a href="">Feed cat</a>
+                                        </div>
+                                        <div class="m-b">
+                                            <span class="label text-base bg-info pos-rlt m-r"><i
+                                                    class="arrow right arrow-info"></i> 12:30</span>
+                                            <a href="">Fishing Time</a>
+                                        </div>
+                                        <div class="m-b">
+                                            <span class="label text-base bg-primary pos-rlt m-r"><i
+                                                    class="arrow right arrow-primary"></i> 10:30</span>
+                                            <a href="">Kick-off meeting</a>
+                                        </div>
+                                        <div class="m-b">
+                                            <span class="label text-base bg-light pos-rlt m-r"><i
+                                                    class="arrow right arrow-light"></i> 07:30</span>
+                                            <a href="">Morning running</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row row-sm">
+                                        <div class="col-xs-6 text-center">
+                                            <div ui-jq="easyPieChart" ui-options="{
+                    percent: 75,
+                    lineWidth: 4,
+                    trackColor: '#e8eff0',
+                    barColor: '#7266ba',
+                    scaleColor: false,
+                    size: 115,
+                    rotate: 90,
+                    lineCap: 'butt'
+                  }" class="inline m-t easyPieChart" style="width: 115px; height: 115px; line-height: 115px;">
+                                                <div>
+                                                    <span class="text-primary h4">75%</span>
+                                                </div>
+                                                <canvas width="115" height="115"></canvas>
+                                            </div>
+                                            <div class="text-muted font-bold text-xs m-t m-b">Work Done</div>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <div ui-jq="easyPieChart" ui-options="{
+                    percent: 50,
+                    lineWidth: 4,
+                    trackColor: '#e8eff0',
+                    barColor: '#23b7e5',
+                    scaleColor: false,
+                    size: 115,
+                    rotate: 180,
+                    lineCap: 'butt'
+                  }" class="inline m-t easyPieChart" style="width: 115px; height: 115px; line-height: 115px;">
+                                                <div>
+                                                    <span class="text-info h4">50%</span>
+                                                </div>
+                                                <canvas width="115" height="115"></canvas>
+                                            </div>
+                                            <div class="text-muted font-bold text-xs m-t m-b">Started</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / tasks -->
+
+                        <!-- tasks -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="panel no-border">
+                                    <div class="panel-heading wrapper b-b b-light">
+              <span class="text-xs text-muted pull-right">
+                <i class="fa fa-circle text-primary m-r-xs"></i> 12
+                <i class="fa fa-circle text-info m-r-xs m-l-sm"></i> 30
+                <i class="fa fa-circle text-warning m-r-xs m-l-sm"></i> 98
+              </span>
+                                        <h4 class="font-thin m-t-none m-b-none text-muted">Teammates</h4>
+                                    </div>
+                                    <ul class="list-group list-group-lg m-b-none">
+                                        <li class="list-group-item">
+                                            <a href="" class="thumb-sm m-r">
+                                                <img src="public/img/a1.jpg" class="r r-2x">
+                                            </a>
+                                            <span class="pull-right label bg-primary inline m-t-sm">Admin</span>
+                                            <a href="">Damon Parker</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="" class="thumb-sm m-r">
+                                                <img src="public/img/a2.jpg" class="r r-2x">
+                                            </a>
+                                            <span class="pull-right label bg-info inline m-t-sm">Member</span>
+                                            <a href="">Joe Waston</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="" class="thumb-sm m-r">
+                                                <img src="public/img/a3.jpg" class="r r-2x">
+                                            </a>
+                                            <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
+                                            <a href="">Jannie Dvis</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="" class="thumb-sm m-r">
+                                                <img src="public/img/a4.jpg" class="r r-2x">
+                                            </a>
+                                            <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
+                                            <a href="">Emma Welson</a>
+                                        </li>
+                                    </ul>
+                                    <div class="panel-footer">
+                                        <span class="pull-right badge badge-bg m-t-xs">32</span>
+                                        <button class="btn btn-primary btn-addon btn-sm"><i class="fa fa-plus"></i>Add
+                                            Teammate
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="list-group list-group-lg list-group-sp">
+                                    <a herf="" class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img src="public/img/a4.jpg" alt="...">
+                <i class="on b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Chris Fox</span>
+                <small class="text-muted clear text-ellipsis">What's up, buddy</small>
+              </span>
+                                    </a>
+                                    <a herf="" class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img src="public/img/a5.jpg" alt="...">
+                <i class="on b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Amanda Conlan</span>
+                <small class="text-muted clear text-ellipsis">Come online and we need talk about the plans that we have
+                    discussed
+                </small>
+              </span>
+                                    </a>
+                                    <a herf="" class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img src="public/img/a6.jpg" alt="...">
+                <i class="busy b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Dan Doorack</span>
+                <small class="text-muted clear text-ellipsis">Hey, Some good news</small>
+              </span>
+                                    </a>
+                                    <a herf="" class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img src="public/img/a7.jpg" alt="...">
+                <i class="busy b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Lauren Taylor</span>
+                <small class="text-muted clear text-ellipsis">Nice to talk with you.</small>
+              </span>
+                                    </a>
+                                    <a herf="" class="list-group-item clearfix">
+              <span class="pull-left thumb-sm avatar m-r">
+                <img src="public/img/a8.jpg" alt="...">
+                <i class="away b-white right"></i>
+              </span>
+              <span class="clear">
+                <span>Mike Jackson</span>
+                <small class="text-muted clear text-ellipsis">This is nice</small>
+              </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / tasks -->
+                    </div>
+                </div>
+                <!-- / main -->
+                <!-- right col -->
+                <div class="col w-md bg-white-only b-l bg-auto no-border-xs">
+                    <div class="nav-tabs-alt ng-isolate-scope" justified="true">
+                        <ul class="nav nav-tabs nav-justified"
+                            ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+                            <li  class="ng-isolate-scope active">
+                                <a href="" class="">
+                                    <tab-heading >
+                                        <i class="glyphicon glyphicon-user text-md text-muted wrapper-sm"></i>
+                                    </tab-heading>
+                                </a>
+                            </li>
+                            <li  >
+                                <a href=""  class="">
+                                    <tab-heading >
+                                        <i class="glyphicon glyphicon-comment text-md text-muted wrapper-sm"></i>
+                                    </tab-heading>
+                                </a>
+                            </li>
+                            <li >
+                                <a href=""  class="">
+                                    <tab-heading >
+                                        <i class="glyphicon glyphicon-transfer text-md text-muted wrapper-sm"></i>
+                                    </tab-heading>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <!-- ngRepeat: tab in tabs -->
+                            <div class="tab-pane ng-scope active" ng-repeat="tab in tabs"
+                                 ng-class="{active: tab.active}" tab-content-transclude="tab">
+
+
+                                <div class="wrapper-md ng-scope">
+                                    <div class="m-b-sm text-md">Who to follow</div>
+                                    <ul class="list-group no-bg no-borders pull-in">
+                                        <li class="list-group-item">
+                                            <a herf="" class="pull-left thumb-sm avatar m-r">
+                                                <img src="public/img/a4.jpg" alt="..." class="img-circle">
+                                                <i class="on b-white bottom"></i>
+                                            </a>
+                                            <div class="clear">
+                                                <div><a href="">Chris Fox</a></div>
+                                                <small class="text-muted">Designer, Blogger</small>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a herf="" class="pull-left thumb-sm avatar m-r">
+                                                <img src="public/img/a5.jpg" alt="..." class="img-circle">
+                                                <i class="on b-white bottom"></i>
+                                            </a>
+                                            <div class="clear">
+                                                <div><a href="">Mogen Polish</a></div>
+                                                <small class="text-muted">Writter, Mag Editor</small>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a herf="" class="pull-left thumb-sm avatar m-r">
+                                                <img src="public/img/a6.jpg" alt="..." class="img-circle">
+                                                <i class="busy b-white bottom"></i>
+                                            </a>
+                                            <div class="clear">
+                                                <div><a href="">Joge Lucky</a></div>
+                                                <small class="text-muted">Art director, Movie Cut</small>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a herf="" class="pull-left thumb-sm avatar m-r">
+                                                <img src="public/img/a7.jpg" alt="..." class="img-circle">
+                                                <i class="away b-white bottom"></i>
+                                            </a>
+                                            <div class="clear">
+                                                <div><a href="">Folisise Chosielie</a></div>
+                                                <small class="text-muted">Musician, Player</small>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a herf="" class="pull-left thumb-sm avatar m-r">
+                                                <img src="public/img/a8.jpg" alt="..." class="img-circle">
+                                                <i class="away b-white bottom"></i>
+                                            </a>
+                                            <div class="clear">
+                                                <div><a href="">Aron Gonzalez</a></div>
+                                                <small class="text-muted">Designer</small>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="text-center">
+                                        <a href="" class="btn btn-sm btn-primary padder-md m-b">More Connections</a>
+                                    </div>
+                                </div>
+                            </div><!-- end ngRepeat: tab in tabs -->
+                            <div class="tab-pane ng-scope" ng-repeat="tab in tabs" ng-class="{active: tab.active}"
+                                 tab-content-transclude="tab">
+
+
+                                <div class="wrapper-md ng-scope">
+                                    <div class="m-b-sm text-md">Chat</div>
+                                    <ul class="list-group no-borders pull-in auto">
+                                        <li class="list-group-item">
+                                            <span class="pull-left thumb-sm m-r"><img src="public/img/a1.jpg" alt="..."
+                                                                                      class="img-circle"></span>
+                                            <a href="" class="text-muted" ui-toggle-class="show"
+                                               target=".app-aside-right"><i
+                                                    class="fa fa-comment-o pull-right m-t-sm text-sm"></i></a>
+                                            <div class="clear">
+                                                <div><a href="">Chris Fox</a></div>
+                                                <small class="text-muted">about 2 minutes ago</small>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="pull-left thumb-sm m-r"><img src="public/img/a2.jpg" alt="..."
+                                                                                      class="img-circle"></span>
+                                            <a href="" class="text-muted" ui-toggle-class="show"
+                                               target=".app-aside-right"><i
+                                                    class="fa fa-comment-o pull-right m-t-sm text-sm"></i></a>
+                                            <div class="clear">
+                                                <div><a href="">Amanda Conlan</a></div>
+                                                <small class="text-muted">about 2 hours ago</small>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="pull-left thumb-sm m-r"><img src="public/img/a3.jpg" alt="..."
+                                                                                      class="img-circle"></span>
+                                            <a href="" class="text-muted" ui-toggle-class="show"
+                                               target=".app-aside-right"><i
+                                                    class="fa fa-comment-o pull-right m-t-sm text-sm"></i></a>
+                                            <div class="clear">
+                                                <div><a href="">Dan Doorack</a></div>
+                                                <small class="text-muted">3 days ago</small>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="pull-left thumb-sm m-r"><img src="public/img/a4.jpg" alt="..."
+                                                                                      class="img-circle"></span>
+                                            <a href="" class="text-muted" ui-toggle-class="show"
+                                               target=".app-aside-right"><i
+                                                    class="fa fa-comment-o pull-right m-t-sm text-sm"></i></a>
+                                            <div class="clear">
+                                                <div><a href="">Lauren Taylor</a></div>
+                                                <small class="text-muted">about 2 minutes ago</small>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div><!-- end ngRepeat: tab in tabs -->
+                            <div class="tab-pane ng-scope" ng-repeat="tab in tabs" ng-class="{active: tab.active}"
+                                 tab-content-transclude="tab">
+
+
+                                <div class="wrapper-md ng-scope">
+                                    <div class="m-b-sm text-md">Transaction</div>
+                                    <ul class="list-group list-group-sm list-group-sp list-group-alt auto m-t">
+                                        <li class="list-group-item">
+                                            <span class="text-muted">Transfer to Jacob at 3:00 pm</span>
+                                            <span class="block text-md text-info">B 15,000.00</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="text-muted">Got from Mike at 1:00 pm</span>
+                                            <span class="block text-md text-primary">B 23,000.00</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="text-muted">Sponsored ORG at 9:00 am</span>
+                                            <span class="block text-md text-warning">B 3,000.00</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="text-muted">Send to Jacob at 8:00 am</span>
+                                            <span class="block text-md">B 11,000.00</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div><!-- end ngRepeat: tab in tabs -->
+                        </div>
+                    </div>
+                    <div class="padder-md">
+                        <!-- streamline -->
+                        <div class="m-b text-md">Recent Activity</div>
+                        <div class="streamline b-l m-b">
+                            <div class="sl-item">
+                                <div class="m-l">
+                                    <div class="text-muted">5 minutes ago</div>
+                                    <p><a href="" class="text-info">Jessi</a> commented your post.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item">
+                                <div class="m-l">
+                                    <div class="text-muted">11:30</div>
+                                    <p>Join comference</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-success b-l">
+                                <div class="m-l">
+                                    <div class="text-muted">10:30</div>
+                                    <p>Call to customer <a href="" class="text-info">Jacob</a> and discuss the detail.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-info wrapper-sm m-l-n m-r-n m-b r r-2x">
+                                Create tasks for the team
+                            </div>
+                            <div class="sl-item b-primary b-l">
+                                <div class="m-l">
+                                    <div class="text-muted">Wed, 25 Mar</div>
+                                    <p>Finished task <a href="" class="text-info">Testing</a>.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-warning b-l">
+                                <div class="m-l">
+                                    <div class="text-muted">Thu, 10 Mar</div>
+                                    <p>Trip to the moon</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-info b-l">
+                                <div class="m-l">
+                                    <div class="text-muted">Sat, 5 Mar</div>
+                                    <p>Prepare for presentation</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-l">
+                                <div class="m-l">
+                                    <div class="text-muted">Sun, 11 Feb</div>
+                                    <p><a href="" class="text-info">Jessi</a> assign you a task <a href=""
+                                                                                                   class="text-info">Mockup
+                                        Design</a>.</p>
+                                </div>
+                            </div>
+                            <div class="sl-item b-l">
+                                <div class="m-l">
+                                    <div class="text-muted">Thu, 17 Jan</div>
+                                    <p>Follow up to close deal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / streamline -->
+                    </div>
+                </div>
+                <!-- / right col -->
+            </div>
+        </div>
+    </div>
+    <!-- /content -->
+
+    <!-- aside right -->
+    <div class="app-aside-right pos-fix no-padder w-md w-auto-xs bg-white b-l animated fadeInRight hide ng-scope">
+        <div class="vbox">
+            <div class="wrapper b-b b-t b-light m-b">
+                <a href="" class="pull-right text-muted text-md" ui-toggle-class="show" target=".app-aside-right"><i
+                        class="icon-close"></i></a>
+                Chat
+            </div>
+            <div class="row-row">
+                <div class="cell">
+                    <div class="cell-inner padder">
+                        <!-- chat list -->
+                        <div class="m-b">
+                            <a href="" class="pull-left thumb-xs avatar"><img src="public/img/a2.jpg" alt="..."></a>
+                            <div class="clear">
+                                <div class="pos-rlt wrapper-sm b b-light r m-l-sm">
+                                    <span class="arrow left pull-up"></span>
+                                    <p class="m-b-none">Hi John, What's up...</p>
+                                </div>
+                                <small class="text-muted m-l-sm"><i class="fa fa-ok text-success"></i> 2 minutes ago
+                                </small>
+                            </div>
+                        </div>
+                        <div class="m-b">
+                            <a href="" class="pull-right thumb-xs avatar"><img src="public/img/a3.jpg" class="img-circle"
+                                                                               alt="..."></a>
+                            <div class="clear">
+                                <div class="pos-rlt wrapper-sm bg-light r m-r-sm">
+                                    <span class="arrow right pull-up arrow-light"></span>
+                                    <p class="m-b-none">Lorem ipsum dolor :)</p>
+                                </div>
+                                <small class="text-muted">1 minutes ago</small>
+                            </div>
+                        </div>
+                        <div class="m-b">
+                            <a href="" class="pull-left thumb-xs avatar"><img src="public/img/a2.jpg" alt="..."></a>
+                            <div class="clear">
+                                <div class="pos-rlt wrapper-sm b b-light r m-l-sm">
+                                    <span class="arrow left pull-up"></span>
+                                    <p class="m-b-none">Great!</p>
+                                </div>
+                                <small class="text-muted m-l-sm"><i class="fa fa-ok text-success"></i>Just Now</small>
+                            </div>
+                        </div>
+                        <!-- / chat list -->
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper m-t b-t b-light">
+                <form class="m-b-none ng-pristine ng-valid">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Say something">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">SEND</button>
+            </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- / aside right -->
+
+    <!-- footer -->
+    <div class="app-footer wrapper b-t bg-light ng-scope">
+        <span class="pull-right ">1.3.3 <a href="" ui-scroll="app" class="m-l-sm text-muted"><i
+                class="fa fa-long-arrow-up"></i></a></span>
+        © 2014 Copyright.
+    </div>
+    <!-- / footer -->
+
+    <!-- ngInclude: 'tpl/blocks/settings.html' -->
+    <div data-ng-include=" 'tpl/blocks/settings.html' " class="settings panel panel-default ng-scope"><!-- settings -->
+        <button class="btn btn-default no-shadow pos-abt ng-scope" ui-toggle-class="active" target=".settings">
+            <i class="fa fa-spin fa-gear"></i>
+        </button>
+        <div class="panel-heading ng-scope">
+            Settings
+        </div>
+        <div class="panel-body ng-scope">
+            <div class="m-b-sm">
+                <label class="i-switch bg-info pull-right">
+                    <input type="checkbox" ng-model="app.settings.headerFixed"
+                           class="ng-pristine ng-untouched ng-valid">
+                    <i></i>
+                </label>
+                Fixed header
+            </div>
+            <div class="m-b-sm">
+                <label class="i-switch bg-info pull-right">
+                    <input type="checkbox" ng-model="app.settings.asideFixed" class="ng-pristine ng-untouched ng-valid">
+                    <i></i>
+                </label>
+                Fixed aside
+            </div>
+            <div class="m-b-sm">
+                <label class="i-switch bg-info pull-right">
+                    <input type="checkbox" ng-model="app.settings.asideFolded"
+                           class="ng-pristine ng-untouched ng-valid">
+                    <i></i>
+                </label>
+                Folded aside
+            </div>
+            <div class="m-b-sm">
+                <label class="i-switch bg-info pull-right">
+                    <input type="checkbox" ng-model="app.settings.asideDock" class="ng-pristine ng-untouched ng-valid">
+                    <i></i>
+                </label>
+                Dock aside
+            </div>
+            <div>
+                <label class="i-switch bg-info pull-right">
+                    <input type="checkbox" ng-model="app.settings.container" class="ng-pristine ng-untouched ng-valid">
+                    <i></i>
+                </label>
+                Boxed layout
+            </div>
+        </div>
+        <div class="wrapper b-t b-light bg-light lter r-b ng-scope">
+            <div class="row row-sm">
+                <div class="col-xs-6">
+                    <label class="i-checks block m-b" 
+                        <input type="radio" name="a" ng-model="app.settings.themeID" value="1"
+                               class="ng-pristine ng-untouched ng-valid">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-black header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-black"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b">
+                        <input type="radio" name="a" ng-model="app.settings.themeID" value="13"
+                               class="ng-pristine ng-untouched ng-valid">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-dark header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-dark"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b">
+                        <input type="radio" ng-model="app.settings.themeID" value="2"
+                               class="ng-pristine ng-untouched ng-valid" name="54">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-white header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-black"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b">
+                        <input type="radio" ng-model="app.settings.themeID" value="3"
+                               class="ng-pristine ng-untouched ng-valid" name="55">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-primary header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-dark"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b" >
+                        <input type="radio" ng-model="app.settings.themeID" value="4"
+                               class="ng-pristine ng-untouched ng-valid" name="56">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-info header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-black"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b" >
+                        <input type="radio" ng-model="app.settings.themeID" value="5"
+                               class="ng-pristine ng-untouched ng-valid" name="57">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-success header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-dark"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block" >
+                        <input type="radio" ng-model="app.settings.themeID" value="6"
+                               class="ng-pristine ng-untouched ng-valid" name="58">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-danger header"></b>
+            <b class="bg-white header"></b>
+            <b class="bg-dark"></b>
+          </span>
+                    </label>
+                </div>
+                <div class="col-xs-6">
+                    <label class="i-checks block m-b" >
+                        <input type="radio" ng-model="app.settings.themeID" value="7"
+                               class="ng-pristine ng-untouched ng-valid" name="59">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-black header"></b>
+            <b class="bg-black header"></b>
+            <b class="bg-white"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b" >
+                        <input type="radio" name="a" ng-model="app.settings.themeID" value="14"
+                               class="ng-pristine ng-untouched ng-valid">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-dark header"></b>
+            <b class="bg-dark header"></b>
+            <b class="bg-light"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b" >
+                        <input type="radio" ng-model="app.settings.themeID" value="8"
+                               class="ng-pristine ng-untouched ng-valid" name="60">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-info dker header"></b>
+            <b class="bg-info dker header"></b>
+            <b class="bg-light dker"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b">
+                        <input type="radio" ng-model="app.settings.themeID" value="9"
+                               class="ng-pristine ng-untouched ng-valid" name="61">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-primary header"></b>
+            <b class="bg-primary header"></b>
+            <b class="bg-dark"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b" >
+                        <input type="radio" ng-model="app.settings.themeID" value="10"
+                               class="ng-pristine ng-untouched ng-valid" name="62">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-info dker header"></b>
+            <b class="bg-info dk header"></b>
+            <b class="bg-black"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block m-b">
+                        <input type="radio" ng-model="app.settings.themeID" value="11"
+                               class="ng-pristine ng-untouched ng-valid" name="63">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-success header"></b>
+            <b class="bg-success header"></b>
+            <b class="bg-dark"></b>
+          </span>
+                    </label>
+
+                    <label class="i-checks block" >
+                        <input type="radio" ng-model="app.settings.themeID" value="12"
+                               class="ng-pristine ng-untouched ng-valid" name="64">
+          <span class="block bg-light clearfix pos-rlt">
+            <span class="active pos-abt w-full h-full bg-black-opacity text-center">
+              <i class="glyphicon glyphicon-ok text-white m-t-xs"></i>
+            </span>
+            <b class="bg-danger dker header"></b>
+            <b class="bg-danger dker header"></b>
+            <b class="bg-dark"></b>
+          </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- /settings --></div>
+</div>
+</body>
+</html>

@@ -2,12 +2,7 @@ import React from 'react'
 import { render, findDOMNode } from 'react-dom'
 import { browserHistory, Router, Route, IndexRoute, Link } from 'react-router'
 import ContactStore from './ContactStore.js'
-import '../../public/css/bootstrap.css'
-import '../../public/css/animate.css'
-import '../../public/css/font-awesome.min.css'
-import '../../public/css/simple-line-icons.css'
-import '../../public/css/font.css'
-import '../../public/css/app.css'
+import './app.css'
 
 
 const App = React.createClass({
