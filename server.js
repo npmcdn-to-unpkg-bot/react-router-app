@@ -24,5 +24,5 @@ fs.readdirSync(__dirname).forEach(function (file) {
 app.use(express.static(__dirname))
 
 app.listen(8802, function () {
-  console.log('Server listening on http://localhost:8080, Ctrl+C to stop')
+  console.log('Server listening on http://localhost:8802, Ctrl+C to stop')
 })
